@@ -1,0 +1,7 @@
+// This is an example
+
+const example = document.getElementById('example')
+example.textContent = 'Example'
+document.body.appendChild(example)
+
+// End of Example
