@@ -3,4 +3,4 @@ import { render } from 'react-dom'
 
 import Presentation from './presentation'
 
-render(<Presentation />, document.querySelector('root'))
+render(<Presentation />, document.querySelector('#root'))
