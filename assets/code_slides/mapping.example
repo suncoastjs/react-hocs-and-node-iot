@@ -1,0 +1,26 @@
+// Mapping Example
+
+function double(x) {
+  return x * 2
+}
+
+double(2) // returns 4
+
+// double takes any number value and
+// multiplies it by 2
+// This is known as mapping
+
+// If you are familiar with JavaScript
+// then you are probably also familiar with the
+// map higher order function
+
+const doubleStuffInArray = [1,2,3,4,5].map(function(value) {
+  return value * 2
+})
+
+doubleStuffInArray // equals [2,4,6,8,10]
+
+// This does the same thing as double above
+// except that map is a function that takes
+// a function, iterates over an array, and
+// returns an array

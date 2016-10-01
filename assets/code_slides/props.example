@@ -1,0 +1,41 @@
+// Let's start simple
+
+import React, { Component } from 'react'
+import { render } from 'react-dom'
+import { compose } from 'recompose'
+
+const withProps = newProps =>
+  WrappedComponent =>
+    class extends Component {
+      render() {
+        return (
+          <WrappedComponent
+            {...this.props}
+            {...newProps} />
+        )
+      }
+    }
+
+const enhance = compose(
+  withProps({
+    fakeData: {
+      name: 'Adam',
+      age: 29,
+      hobby: 'Giving talks on Recompose'
+    }
+  })
+)
+
+const WhoAmI = enhance(({ fakeData, somethingElse }) =>
+  <div>
+    <h1>{fakeData.name}</h1>
+    <p>{fakeData.age}</p>
+    <p>{fakeData.hobby}</p>
+    <p>{somethingElse}</p>
+  </div>
+)
+
+render(
+  <WhoAmI somethingElse='Hey mah, no hands!'/>,
+  document.getElementById('root')
+)
