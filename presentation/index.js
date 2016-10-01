@@ -91,9 +91,6 @@ export default function Presentation () {
           <Heading>Composition to the rescue!</Heading>
         </Slide>
         <Slide>
-          <Heading>Composition allows us to make our code more readable and flexible</Heading>
-        </Slide>
-        <Slide>
           <Heading>What is this composition rigamarole?</Heading>
         </Slide>
         <Slide>
@@ -157,8 +154,6 @@ export default function Presentation () {
           <Heading>Questions to ask yourself</Heading>
           <List>
             <ListItem>Does this belong in the component?</ListItem>
-            <ListItem>Do you really care how the dimensions are are calculated?</ListItem>
-            <ListItem>Should the component care about how it gets this information?</ListItem>
             <ListItem>Is this composable?</ListItem>
           </List>
         </Slide>
