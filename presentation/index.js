@@ -137,9 +137,55 @@ export default function Presentation () {
            { loc: [6, 17], note: 'A HOC called withProps. It\'s only purpose is to pass down props. That\'s it!' },
            { loc: [18, 27], note: `Now let's do what they call enhance with the help of compose` },
            { loc: [28, 35], note: 'Now we can enhance our base component.' },
-           { loc: [36, 40], note: 'We can even mount it now :)' }
+           { loc: [36, 40], note: 'We can even mount it now :)' },
+           { loc: [42, 44], note: 'View the code here' }
           ]}
-       />
+        />
+        <Slide>
+          <Heading>Lets try a more difficult example</Heading>
+        </Slide>
+        <Slide>
+          <Heading>Window Resize Dimensions!</Heading>
+        </Slide>
+        <Slide>
+          <Heading>Typical Example</Heading>
+          <CodePane
+            lang='js'
+            source={require('raw!../assets/code_slides/dimensions.example')} />
+        </Slide>
+        <Slide>
+          <Heading>Questions to ask yourself</Heading>
+          <List>
+            <ListItem>Does this belong in the component?</ListItem>
+            <ListItem>Do you really care how the dimensions are are calculated?</ListItem>
+            <ListItem>Should the component care about how it gets this information?</ListItem>
+            <ListItem>Is this composable?</ListItem>
+          </List>
+        </Slide>
+        <CodeSlide
+          transition={[]}
+          lang='js'
+          code={require('raw!../assets/code_slides/hocdimensions.example')}
+          ranges={[
+           { loc: [0, 1], title: `Let's create a window dimensions HOC` },
+           { loc: [2, 10], note: 'Pull in needed libraries.' },
+           { loc: [11, 12], note: 'Set observable config' },
+           { loc: [13, 30] },
+           { loc: [31, 34], note: `As we have done before, let's compose it` },
+           { loc: [35, 40], note: `Let's make an app out of it yeah!` },
+           { loc: [41, 45], note: 'And finally mount it.' },
+           { loc: [46, 48], note: 'View the code here' }
+          ]}
+        />
+        <Slide>
+          <BlockQuote>
+            <Quote textColor='tertiary'>Thats all folks</Quote>
+            <Cite>Porky Pig</Cite>
+          </BlockQuote>
+        </Slide>
+        <Slide>
+          <h1>Resources</h1>
+        </Slide>
         {/* }
             //////////////////////////////
             ///////  END: PART ONE ///////

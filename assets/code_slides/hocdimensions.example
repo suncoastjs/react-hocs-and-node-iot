@@ -1,0 +1,48 @@
+// A HOC that handles window dimensions
+
+import React, { Component } from 'react'
+import { Observable } from 'rx'
+import {
+  mapPropsStream,
+  setObservableConfig,
+  compose
+} from 'recompose'
+import rxjs4config from 'recompose/rxjs4ObservableConfig'
+
+setObservableConfig(rxjs4config)
+
+const windowDimensions = mapPropsStream(props$ => {
+  const dimensions$ = Observable
+    .fromEvent(window, 'resize')
+    .map(e => ({
+      width: e.target.innerWidth,
+      height: e.target.innerHeight
+    }))
+    .startWith({
+      width: window.innerWidth,
+      height: window.innerHeight
+    })
+  return props$
+    .combineLatest(dimensions$, (props, dimensions) => ({
+    ...props,
+    window: {...dimensions}
+  }))
+})
+
+const enhance = compose(
+  windowDimensions
+)
+
+const App = enhance(({ window }) =>
+  <div>
+    <div>{window.width}, {window.height}</div>
+  </div>
+)
+
+render(
+  <App />,
+  document.getElementById('root')
+)
+
+// See the code here:
+https://github.com/arecvlohe/recompose-example/blob/master/src/App.js

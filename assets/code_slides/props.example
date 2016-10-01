@@ -39,3 +39,6 @@ render(
   <WhoAmI somethingElse='Hey mah, no hands!'/>,
   document.getElementById('root')
 )
+
+// View this online here:
+// https://gist.github.com/arecvlohe/6f7c988b4cc7849dbe8ecf36cf7a84dc 
