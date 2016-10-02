@@ -52,7 +52,7 @@ const theme = createTheme({
 export default function Presentation () {
   return (
     <Spectacle theme={theme}>
-      <Deck transition={['zoom']} transitionDuration={500}>
+      <Deck transition={['spin', 'zoom']} transitionDuration={500}>
         <Slide>
           <Heading caps lineHeight={1.5} textColor='black' textFont='primary'>Suncoast.js</Heading>
           <Heading caps fit lineHeight={2} textColor='black' textFont='primary'>
@@ -76,12 +76,12 @@ export default function Presentation () {
         <Slide>
           <Heading fit caps textColor='black'>Higher Order Components in React</Heading>
         </Slide>
-        <Slide bgColor='black'>
-          <Heading fit caps textColor='yellow'>What will we be discussing?</Heading>
+        <Slide bgColor='pink'>
+          <Heading caps size={3} textColor='white'>What we will be discussing...in technical terms</Heading>
           <List style={{ textAlign: 'center' }}>
-            <ListItem caps><Link href='/#/5'>What is that thingamajing called mapping?</Link></ListItem>
-            <ListItem caps><Link href='/#/16'>What is this composition rigamarole?</Link></ListItem>
-            <ListItem caps><Link href='/#/20'>What are these Recompose shenanigans?</Link></ListItem>
+            <ListItem caps><Link textColor='white' href='/#/5'>What is that thingamajing called mapping?</Link></ListItem>
+            <ListItem caps><Link textColor='white' href='/#/16'>What is this composition rigamarole?</Link></ListItem>
+            <ListItem caps><Link textColor='white' href='/#/20'>What are these Recompose shenanigans?</Link></ListItem>
           </List>
         </Slide>
         <Slide>
@@ -178,7 +178,7 @@ export default function Presentation () {
           <Heading fit textColor='white' size={3}>Let us try a more difficult example</Heading>
         </Slide>
         <Slide bgColor='black'>
-          <Heading fit caps textColor='yellow'>Window resize dimensions HOC!</Heading>
+          <Heading fit caps textColor='yellow'>Window (resize) dimensions HOC!</Heading>
         </Slide>
         <Slide>
           <CodePane
@@ -212,6 +212,9 @@ export default function Presentation () {
             <Quote textColor='white'>Thats all folks</Quote>
             <Cite>Porky Pig</Cite>
           </BlockQuote>
+          <div style={{ position: 'absolute', top: 400, left: 400 }}>
+            <small>No gifs :( Sorry not sorry!</small>
+          </div>
         </Slide>
         <Slide>
           <Heading fit caps textColor='black'>Resources</Heading>
