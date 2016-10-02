@@ -1,0 +1,12 @@
+// Some Boilerplace for Handling Window Resizing
+state = { window: {
+  width: window.innerWidth,
+  height: window.innerHeight
+}}
+
+handleResize() { this.setState({
+  window: {
+    width: window.innerWidth,
+    height: window.innerHeight
+  }})
+}

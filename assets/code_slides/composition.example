@@ -1,0 +1,11 @@
+// Composition Example
+
+function compose(f, g) {
+  return function (x) {
+    return f(g(x))
+  }
+}
+
+// Messed around and got a triple double
+const tripleThenDouble = compose(triple, double)
+tripleThenDouble(2) // returns 12
