@@ -1,25 +1,11 @@
 // Composition Example
 
-// The compose function takes two functions
-// And returns a function with the initial value
 function compose(f, g) {
   return function (x) {
     return f(g(x))
   }
 }
 
-// Double up
-function double(x) {
-  return x * 2
-}
-
-// Triple down
-function triple(x) {
-  return x * 3
-}
-
-// Here we are able to declaratively say what we are trying to do
+// Messed around and got a triple double
 const tripleThenDouble = compose(triple, double)
 tripleThenDouble(2) // returns 12
-
-// Look at that, messed around and got a triple double

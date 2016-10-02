@@ -1,29 +1,12 @@
 // Some Boilerplace for Handling Window Resizing
+state = { window: {
+  width: window.innerWidth,
+  height: window.innerHeight
+}}
 
-class App extends Component {
-
-  state = {
-    window: {
-      width: window.innerWidth,
-      height: window.innerHeight
-    }
-  }
-
-  handleResize() {
-    this.setState({
-      window: {
-        width: window.innerWidth,
-        height: window.innerHeight
-      }
-    })
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize.bind(this))
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize.bind(this))
-  }
-
+handleResize() { this.setState({
+  window: {
+    width: window.innerWidth,
+    height: window.innerHeight
+  }})
 }

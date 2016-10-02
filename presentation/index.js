@@ -1,128 +1,164 @@
 import React from 'react'
 import {
-  Spectacle,
-  Deck,
-  Slide,
-  Heading,
-  Text,
-  Markdown,
-  CodePane,
   BlockQuote,
-  Quote,
   Cite,
+  CodePane,
+  Deck,
+  Fill,
+  Fit,
+  Heading,
+  Image,
+  Layout,
+  Link,
+  List,
   ListItem,
-  List
+  Quote,
+  Slide,
+  Spectacle,
+  Text
 } from 'spectacle'
 
 import CodeSlide from 'spectacle-code-slide'
 
+// Import theme
+import createTheme from 'spectacle/lib/themes/default'
+
+// Require CSS
+require('normalize.css')
+require('../assets/css/pres-styles.css')
+
+const Urls = {
+  suncoastTwitter: 'https://twitter.com/suncoastjs',
+  suncoastGithub: 'https://github.com/suncoastjs'
+}
+
+const styles = {
+  listItemTitle: {
+    listStyleType: 'none',
+    textAlign: 'center'
+  },
+  listItemNoBulletPoint: {
+    listStyleType: 'none'
+  }
+}
+
+const theme = createTheme({
+  yellow: '#ffdc00',
+  black: '#24242D',
+  pink: '#E211B3',
+  white: '#FFF'
+})
+
 export default function Presentation () {
   return (
-    <Spectacle>
-      <Deck>
+    <Spectacle theme={theme}>
+      <Deck transition={['zoom']} transitionDuration={500}>
         <Slide>
-          <Heading>Suncoast.js</Heading>
-        </Slide>
-        <Slide>
-          <Heading>
+          <Heading caps lineHeight={1.5} textColor='black' textFont='primary'>Suncoast.js</Heading>
+          <Heading caps fit lineHeight={2} textColor='black' textFont='primary'>
             Higher Order Components in React and Node Internet of Rain
           </Heading>
+          <List style={styles.listItemTitle}>
+            <ListItem>
+              For <a target='_blank' href={Urls.suncoastGithub}>Suncoast.js</a>,&nbsp;
+              Twitter: <a target='_blank' href={Urls.suncoastTwitter}>@suncoastjs</a>
+            </ListItem>
+          </List>
         </Slide>
         {/* }
             /////////////////////////////////
             ///////  START: PART ONE ///////
             ////////////////////////////////
         { */}
-        <Slide>
-          <Heading>PART 1</Heading>
+        <Slide bgColor='black'>
+          <Heading textColor='yellow'>PART 1</Heading>
         </Slide>
         <Slide>
-          <Heading>Higher Order Components in React</Heading>
+          <Heading fit caps textColor='black'>Higher Order Components in React</Heading>
         </Slide>
-        <Slide>
-          <Heading>What I will talk about in order...</Heading>
-          <List>
-            <ListItem>What is that thingamajing called mapping?</ListItem>
-            <ListItem>What is this composition rigamarole?</ListItem>
-            <ListItem>What are these Recompose shenanigans?</ListItem>
+        <Slide bgColor='black'>
+          <Heading fit caps textColor='yellow'>What will we be discussing?</Heading>
+          <List style={{ textAlign: 'center' }}>
+            <ListItem caps><Link href='/#/5'>What is that thingamajing called mapping?</Link></ListItem>
+            <ListItem caps><Link href='/#/16'>What is this composition rigamarole?</Link></ListItem>
+            <ListItem caps><Link href='/#/20'>What are these Recompose shenanigans?</Link></ListItem>
           </List>
         </Slide>
         <Slide>
-          <h1>Before we can talk about HOCs we need to start with...</h1>
+          <Heading size={4} caps textColor='black'>Before we can talk about HOCs (Higher Order Components) we need to start with a very important and concise question</Heading>
+        </Slide>
+        <Slide bgColor='black'>
+          <Heading textColor='yellow'>What is that thingamajing called mapping?</Heading>
         </Slide>
         <Slide>
-          <Heading>What is that thingamajing called mapping?</Heading>
+          <Heading caps fit>What is mapping?</Heading>
+          <Text fit>Put simply, mapping is when you take a value and transform it into another value</Text>
         </Slide>
         <Slide>
-          <Heading>What is mapping?</Heading>
-          <h1>Mapping is when you take a value and transform it into another value</h1>
-        </Slide>
-        <Slide>
-          <Heading>Mapping</Heading>
           <CodePane
             lang='js'
-            source={require('raw!../assets/code_slides/mapping.example')} />
+            source={require('raw!../assets/code_slides/mapping.example')}
+            margin='20px auto' />
         </Slide>
         <Slide>
-          <Heading>Now one step further...</Heading>
+          <CodePane
+            lang='js'
+            source={require('raw!../assets/code_slides/arraymapping.example')}
+            margin='20px auto' />
+        </Slide>
+        <Slide bgColor='pink'>
+          <Heading fit size={3} textColor='white'>Now one step further...</Heading>
+        </Slide>
+        <Slide bgColor='black'>
+          <Heading textColor='yellow' size={4}>What if we wanted to do multiple transformations on the same initial value...</Heading>
         </Slide>
         <Slide>
-          <Heading>What if we wanted to do multiple transformations on the same initial value...</Heading>
+          <Heading textColor='white'>Well, we could do that by chaining...</Heading>
         </Slide>
         <Slide>
-          <Heading>Well, we could do that by chaining...</Heading>
-        </Slide>
-        <Slide>
-          <Heading>Chaining</Heading>
           <CodePane
             lang='js'
             source={require('raw!../assets/code_slides/chaining.example')} />
         </Slide>
         <Slide>
-          <Heading>That is all well and good but this is not very readable or dynamic</Heading>
+          <Heading textColor='black'>But is there a way for us to be more declarative...</Heading>
+        </Slide>
+        <Slide bgColor='black'>
+          <Heading fit textColor='yellow'>...and flexible with our code</Heading>
+        </Slide>
+        <Slide bgColor='pink'>
+          <Heading size={3} textColor='white'>Composition to the rescue!</Heading>
+        </Slide>
+        <Slide bgColor='black'>
+          <Heading textColor='yellow'>What is this composition rigamarole?</Heading>
         </Slide>
         <Slide>
-          <Heading>In other words, is there a way that we can be more declarative...</Heading>
-        </Slide>
-        <Slide>
-          <Heading>...And more flexible with our code</Heading>
-        </Slide>
-        <Slide>
-          <Heading>Composition to the rescue!</Heading>
-        </Slide>
-        <Slide>
-          <Heading>What is this composition rigamarole?</Heading>
-        </Slide>
-        <Slide>
-          <Heading>Composition</Heading>
           <CodePane
             lang='js'
             source={require('raw!../assets/code_slides/composition.example')} />
         </Slide>
         <Slide>
-          <Heading>But Adam, what about arrays?</Heading>
+          <Heading fit textColor='white'>But Adam, what about arrays?</Heading>
         </Slide>
         <Slide>
-          <Heading>Composing Arrays</Heading>
           <CodePane
             lang='js'
             source={require('raw!../assets/code_slides/composeArrays.example')} />
         </Slide>
-        <Slide>
-          <Heading>What are these Recompose shenanigans?</Heading>
+        <Slide bgColor='black'>
+          <Heading caps textColor='yellow'>What are these Recompose shenanigans?</Heading>
         </Slide>
         <Slide>
           <BlockQuote>
-            <Quote textColor='tertiary'>A higher order component is a function that accepts a component and returns a new component</Quote>
+            <Quote textColor='white'>A higher order component is a function that accepts a component and returns a new component</Quote>
             <Cite>Andrew Clark</Cite>
           </BlockQuote>
         </Slide>
-        <Slide>
-          <Heading>What in the world?</Heading>
+        <Slide bgColor='pink'>
+          <Heading fit textColor='white' size={3}>What in the world?</Heading>
         </Slide>
         <Slide>
-          <Heading>Now time for semi-live-coding!</Heading>
-          <Text>60% of the time it works everytime - Anchorman </Text>
+          <Heading fit caps>Code Time!</Heading>
         </Slide>
         <CodeSlide
           transition={[]}
@@ -138,21 +174,20 @@ export default function Presentation () {
            { loc: [42, 44], note: 'View the code here' }
           ]}
         />
-        <Slide>
-          <Heading>Lets try a more difficult example</Heading>
+        <Slide bgColor='pink'>
+          <Heading fit textColor='white' size={3}>Let us try a more difficult example</Heading>
+        </Slide>
+        <Slide bgColor='black'>
+          <Heading fit caps textColor='yellow'>Window resize dimensions HOC!</Heading>
         </Slide>
         <Slide>
-          <Heading>Window Resize Dimensions!</Heading>
-        </Slide>
-        <Slide>
-          <Heading>Typical Example</Heading>
           <CodePane
             lang='js'
             source={require('raw!../assets/code_slides/dimensions.example')} />
         </Slide>
-        <Slide>
-          <Heading>Questions to ask yourself</Heading>
-          <List>
+        <Slide bgColor='black'>
+          <Heading fit caps textColor='yellow'>Questions to ask yourself</Heading>
+          <List style={{ textAlign: 'center' }} textColor='yellow' caps>
             <ListItem>Does this belong in the component?</ListItem>
             <ListItem>Is this composable?</ListItem>
           </List>
@@ -172,14 +207,23 @@ export default function Presentation () {
            { loc: [46, 48], note: 'View the code here' }
           ]}
         />
-        <Slide>
+        <Slide bgColor='pink'>
           <BlockQuote>
-            <Quote textColor='tertiary'>Thats all folks</Quote>
+            <Quote textColor='white'>Thats all folks</Quote>
             <Cite>Porky Pig</Cite>
           </BlockQuote>
         </Slide>
         <Slide>
-          <h1>Resources</h1>
+          <Heading fit caps textColor='black'>Resources</Heading>
+          <List style={{ textAlign: 'center' }}>
+            <ListItem><a href='https://github.com/acdlite/recompose' target='_blank'>Recompose Library</a></ListItem>
+            <ListItem><a href='https://www.youtube.com/watch?v=zD_judE-bXk' target='_blank'>Andrew Clark talks about HOCs and Recompose</a></ListItem>
+            <ListItem><a href='https://gist.github.com/arecvlohe/6f7c988b4cc7849dbe8ecf36cf7a84dc' target='_blank'>withProps Example</a></ListItem>
+            <ListItem><a href='https://github.com/arecvlohe/recompose-example/blob/master/src/App.js' target='_blank'>windowDimensions Example</a></ListItem>
+          </List>
+        </Slide>
+        <Slide bgColor='black'>
+          <Heading caps textColor='yellow'>Now on to Part 2!</Heading>
         </Slide>
         {/* }
             //////////////////////////////

@@ -1,11 +1,7 @@
 // Chaining Example
 
 const chain = [1,2,3,4,5]
-  .map(function(value) {
-    return value * 2
-  })
-  .map(function(value) {
-    return value * 3
-  })
+  .map(double)
+  .map(triple)
 
 chain // equals [6, 12, 18, 24, 30]

@@ -1,17 +1,10 @@
 // Composing Arrays
-
 // This is using the Ramda Library
 
 const array = [1,2,3,4,5]
-
 const double = x => x * 2
-
 const triple = y => y * 3
-
 const doubleMap = map(double)
-
 const tripleMap = map(triple)
-
 const tripleThenDoubleMap = compose(tripleMap, doubleMap)
-
 tripleThenDoubleMap(array) // returns [6, 12, 18, 24, 30]

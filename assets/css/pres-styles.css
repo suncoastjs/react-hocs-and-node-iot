@@ -1,6 +1,6 @@
 a {
   text-decoration: none;
-  color: #C6FC93;
+  color: #F012BE;
   opacity: 1;
 }
 
@@ -11,4 +11,8 @@ a:hover {
 code, kbd, pre, samp {
     font-family: monospace, monospace!important;
     font-size: 0.90em!important;
+}
+
+ul {
+  list-style: none;
 }

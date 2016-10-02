@@ -1,0 +1,11 @@
+// If you are familiar with JavaScript
+// then you are probably also familiar with the
+// map higher order function
+
+function double(x) {
+  return x * 2
+}
+
+const doubled = [1,2,3,4,5].map(double)
+
+doubled // equals [2,4,6,8,10]
