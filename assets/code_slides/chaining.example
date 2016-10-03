@@ -5,3 +5,7 @@ const chain = [1,2,3,4,5]
   .map(triple)
 
 chain // equals [6, 12, 18, 24, 30]
+
+// Without chaining
+const tripleDoubled = triple(double(2))
+tripleDoubled // equals 12
